@@ -15,7 +15,7 @@ const Soldier = mongoose.model('Soldier', {
         type: String,
         required: true,
         trim: true
-    }
+    },
 })
 
 module.exports = Soldier

@@ -21,3 +21,5 @@ const Team = mongoose.model("Team", {
         trim: true
     }
 })
+
+module.exports = Team

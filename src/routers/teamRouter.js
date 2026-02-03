@@ -31,6 +31,22 @@ router.get('/teams/:id', async (req, res) => {
     }
 })
 
+router.get('/teams/name/:name', async (req, res) => {
+    const _teamName = req.params.name
+    try {
+        const team = await Team.findOne({ name: _teamName });
+        res.send(team.leader)
+    } catch (e) { res.status(500).send(e) }
+})
+
+router.get('/teams/size/:name', async (req, res) => {
+    const _teamName = req.params.name
+    try {
+        const team = await Team.findOne({ name: _teamName });
+        res.send(team.size)
+    } catch (e) { res.status(500).send(e) }
+})
+
 router.patch('teams/:id', async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ["name", "leader", "size", "description"]
